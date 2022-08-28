@@ -1,0 +1,63 @@
+.writingCenter_box {
+  width: 471px;
+  height: 579px;
+  background-color: rgba(255, 255, 255, 1);
+  -webkit-box-shadow: 5px 5px 5px rgb(215 215 215 / 35%);
+  box-shadow: 5px 5px 5px rgb(215 215 215 / 35%);
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px 40px;
+}
+.title {
+  font-size: 20px;
+  color: #3f8cff;
+  text-align: center;
+}
+.user_box {
+  font-size: 18px;
+}
+.userInfo_box {
+  width: 100%;
+  background-color: #f2f2f2;
+  height: 145px;
+  margin-top: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.userInfo_item {
+  width: 180px;
+  margin: 5px 0 0 10px;
+  font-size: 18px;
+}
+.userInfo_item div:nth-child(1) {
+  font-weight: 200;
+  color: #333333;
+}
+.userInfo_item div:nth-child(2) {
+  margin-top: 5px;
+}
+.column_box {
+  margin: 20px 0;
+  color: #3e8afc;
+  font-weight: 800;
+}
+.columnInfo_box {
+  width: 100%;
+  background-color: #f2f2f2;
+  height: 106px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+.createNew {
+  width: 100%;
+  background-color: #f2f2f2;
+  height: 30px;
+  margin-top: 10px;
+  border-radius: 5px;
+  margin-top: 40px;
+  line-height: 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}

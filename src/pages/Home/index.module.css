@@ -1,0 +1,26 @@
+.nav_box {
+  width: 80%;
+  height: 40px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  box-shadow: 5px 5px 5px rgb(215 215 215 / 35%);
+  border-radius: 10px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgba(255, 255, 255, 1);
+}
+.navLink_box {
+  width: 100px;
+  height: 100%;
+  margin: 0 auto;
+  line-height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+.navLink_box a {
+  font-size: 18px;
+  color: #7f7f7f;
+}

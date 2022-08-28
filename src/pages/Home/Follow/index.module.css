@@ -1,0 +1,19 @@
+.follow_box {
+  width: 80%;
+  height: 90%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+.article_box {
+  width: 613px;
+  height: 100px;
+}
+.article_inner {
+  width: 613px;
+  height: 168px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+}

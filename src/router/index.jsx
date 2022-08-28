@@ -45,6 +45,10 @@ export default [
             {
                 path: 'follow',
                 element: <Follow />
+            },
+            {
+                path: '',
+                element: <Navigate to='follow' />
             }
         ]
     }
