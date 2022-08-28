@@ -1,0 +1,97 @@
+* {
+  margin: 0 ;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #f1f1f1;
+}
+#top {
+  margin: 0 auto;
+  max-width: 1130px;
+  height: 300px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+  border-radius: 10px;
+}
+#top #img-box {
+  width: 222px;
+  height: 220px;
+  background-color: aqua;
+  margin-right: 60px;
+}
+#top #img-box img {
+  width: 100%;
+  height: 220px;
+}
+#top #top-right {
+  width: 700px;
+  height: 300px;
+}
+#top #top-right .ant-descriptions-title {
+  font-size: 28px;
+  font-weight: 500;
+}
+#top #top-right .ant-descriptions-item-content {
+  font-weight: 400;
+  line-height: 16px;
+}
+#top #top-right .ant-descriptions-item-container {
+  margin-top: -10px;
+  display: block;
+  width: 420px;
+  font-size: 14px;
+  flex-wrap: wrap;
+}
+#top #top-right #msgbox {
+  width: 352px;
+  height: 44px;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+}
+#top #top-right #msgbox #imgbox {
+  width: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#top #top-right #msgbox #imgbox img {
+  width: 35px;
+  height: 35px;
+}
+#body {
+  max-width: 900px;
+  margin: 10px auto;
+  text-align: center;
+}
+#body h3 {
+  width: 50px;
+  font-weight: 600;
+  position: relative;
+  left: 115px;
+}
+#body .ant-list-item {
+  margin: 0 auto;
+  height: 137px;
+  width: 653px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 5px 5px 5px #ebebeb;
+}
+#body .ant-list-item .ant-list-item-meta-content {
+  margin-top: -40px;
+  text-align: left;
+  padding-left: 10px;
+}
+#body .ant-list-item .ant-list-item-meta-content .ant-list-item-meta-title {
+  font-size: 18px;
+}
+/*# sourceMappingURL=./index.css.map */
