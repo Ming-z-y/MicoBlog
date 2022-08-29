@@ -1,0 +1,46 @@
+.article_inner {
+  width: 613px;
+  height: 168px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  padding: 18px;
+  margin-top: 30px;
+}
+.article_inner:nth-child(1) {
+  margin-top: 0px;
+}
+.article_inner a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+/* 专栏 */
+.itemTop {
+  display: flex;
+  justify-content: space-around;
+  height: 30px;
+}
+.user_box {
+  font-weight: 600;
+}
+.user_box img {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+.itemColumnTitle {
+  font-size: 18px;
+  font-weight: 800;
+}
+.itemArticleTitle {
+  margin-top: 15px;
+  color: #478dfc;
+}
+.itemTop img {
+  margin-right: 10px;
+}
+.itemMain {
+  color: #7f7f7f;
+  margin-top: 10px;
+}

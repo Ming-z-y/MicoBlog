@@ -1,12 +1,13 @@
 .writingCenter_box {
   width: 471px;
-  height: 579px;
+  /* height: 579px; */
   background-color: rgba(255, 255, 255, 1);
   -webkit-box-shadow: 5px 5px 5px rgb(215 215 215 / 35%);
   box-shadow: 5px 5px 5px rgb(215 215 215 / 35%);
   border-radius: 10px;
   box-sizing: border-box;
-  padding: 10px 40px;
+  padding: 10px 40px 40px 40px;
+  position: relative;
 }
 .title {
   font-size: 20px;
@@ -46,8 +47,43 @@
   width: 100%;
   background-color: #f2f2f2;
   height: 106px;
-  margin-top: 10px;
+  margin-top: 30px;
   border-radius: 5px;
+  box-sizing: border-box;
+  padding: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+}
+.columnInfo_box a:hover {
+  color: #333333;
+}
+.coverContent {
+  width: 200px;
+  margin-left: 20px;
+  /* background-color: #3e8afc; */
+}
+.coverTitle_div {
+  display: flex;
+  justify-content: space-between;
+}
+.coverTitle {
+  font-size: 16px;
+}
+.create_div {
+  background-color: #68a4fc;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.count_div {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
 }
 .createNew {
   width: 100%;

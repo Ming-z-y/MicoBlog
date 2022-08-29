@@ -1,0 +1,52 @@
+.addColumn_div {
+  width: 496px;
+  height: 385px;
+  background-color: aliceblue;
+  box-sizing: border-box;
+  padding: 40px;
+  border: 1px solid #3e8afc;
+  border-radius: 15px;
+  position: absolute;
+  right: 350px;
+  bottom: 50px;
+}
+.title_content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+.title_content:nth-child(1) {
+  margin-top: 0;
+}
+.titleText_div {
+  border: 1px solid #3e8afc;
+  width: 290px;
+  height: 35px;
+  border-radius: 5px;
+  line-height: 35px;
+  padding-left: 10px;
+}
+.titleText_div input {
+  width: 250px;
+}
+.contentText_div {
+  border: 1px solid #3e8afc;
+  width: 290px;
+  height: 180px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.create_div {
+  cursor: pointer;
+  background-color: #3f8cff;
+  width: 70px;
+  height: 20px;
+  border-radius: 10px;
+  color: aliceblue;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  margin: 50px auto;
+}
