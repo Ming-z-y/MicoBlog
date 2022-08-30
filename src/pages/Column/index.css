@@ -61,10 +61,15 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  border-radius: 50%;
 }
 #top #top-right #msgbox #imgbox img {
   width: 35px;
   height: 35px;
+  border-radius: 50%;
+}
+#top #top-right #msgbox #state {
+  cursor: pointer;
 }
 #body {
   max-width: 900px;

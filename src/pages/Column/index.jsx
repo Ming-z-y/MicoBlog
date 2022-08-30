@@ -1,42 +1,49 @@
 import React from 'react'
 import 'antd/dist/antd.css';
 import { Descriptions, List } from 'antd';
+import { columnInfo } from '../../api/request';
+import { follow } from '../../api/request';
 import { Link } from 'react-router-dom';
 import './index.css'
 export default function Column() {
-  const data = [
-    {
-      title: 'Ant Design Title 1',
-    },
-    {
-      title: 'Ant Design Title 2',
-    },
-    {
-      title: 'Ant Design Title 3',
-    },
-    {
-      title: 'Ant Design Title 4',
-    },
-  ];
-  return (
+  const[newData,setNewData] = React.useState(null)
+  const[isFollow,setIsFollow] = React.useState(true)
+  React.useEffect(()=>{
+
+      columnInfo(1).then((res)=>{
+       const newData = res.data.data
+       setNewData(newData)
+      })
+  },[])
+  const changeFollow =()=>{
+    setIsFollow(!isFollow)
+    const type = isFollow ? 1 : 0
+    //参数3个
+  //  follow().then(()=>{
+
+  //  })
+  }
+  console.log(isFollow);
+  return newData ? (
     <div id='wrap'>
       <div id="top">
         <div id="top-left">
           <div id="img-box">
+            <img src={newData.column.coverUrl} alt="" />
           </div>
         </div>
         <div id="top-right">
-          <Descriptions title="大学生就该这样" style={{ fontSize: '20px' }}>
+          <Descriptions title={newData.column.title} style={{ fontSize: '20px' }}>
             <Descriptions.Item>
-              简介：Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo. Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus pronin sapien nunc accuan eget.
+            {newData.column.introduction}
             </Descriptions.Item>
           </Descriptions>
           <div id="msgbox">
             <div id="imgbox">
-              <img src="../../assets/react.svg" alt="" />
+              <img src={newData.column.coverUrl} alt="" />
               <div id="name">ply</div>
             </div>
-            <div id="state">已关注</div>
+            <div id="state" onClick={changeFollow}>{isFollow ? '已关注' : '未关注'}</div>
           </div>
         </div>
       </div>
@@ -44,19 +51,19 @@ export default function Column() {
         <h3>目录</h3>
         <List
           itemLayout="horizontal"
-          dataSource={data}
+          dataSource={newData.articleList}
           renderItem={(item) => (
             <List.Item>
               <List.Item.Meta
-                title={<Link to='/article'>{item.title}</Link>}
-                description="Ant Design, a design language for background applications, is refined by Ant UED Team"
+                title={<Link to={`/article/${item.id}`}>{item.articleTitle}</Link>}
+                description={item.content}
               />
             </List.Item>
           )}
         />
       </div>
     </div>
-  )
+  ) : <></>
 }
 
 

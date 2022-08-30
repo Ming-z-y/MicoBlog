@@ -35,7 +35,7 @@ export const createArticle = (content, title, column, userId) => {
 }
 
 export const columnInfo = (columnId) => {
-    return instance.get(`/weiboke/publish/column?columnId=${columnId}`)
+    return instance.get(`/weiboke/publish/column?columnId=${columnId}&userId=10`)
 }
 
 export const articleInfo = (articleId) => {
