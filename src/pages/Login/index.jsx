@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import style from './index.module.css'
 import { login } from '../../api/request'
 
+import message from '../../components/Message'
+
 export default function Login() {
     const usernameRef = useRef()
     const passwordRef = useRef()
@@ -19,9 +21,11 @@ export default function Login() {
                 } else {
                     alert(res.data.status_msg)
                 }
+            }).then(err => {
+                message.info({ content: '网络错误' })
             })
         } else {
-            alert('请填写完整信息！');
+            message.info({ content: '请填写完整信息！' })
         }
     }
     return (

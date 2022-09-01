@@ -20,6 +20,7 @@ export default function WritingCenter() {
     }
     const createHandler = (e) => {
         e.preventDefault();
+        window.location.href = '/create'
     }
     return userInfo ? (
         <div className={style['writingCenter_box']}>
@@ -62,7 +63,7 @@ export default function WritingCenter() {
                             <div className="coverImg_div">
                                 <img src={item.coverUrl} alt="coverImg" />
                             </div>
-                            <Link to='/column' className={style['coverContent']}>
+                            <Link to={`/column?id=${item.id}`} className={style['coverContent']}>
                                 <div className={style['coverTitle_div']}>
                                     <div className={style['coverTitle']}>{item.title}</div>
                                     <div className={style['create_div']} onClick={createHandler}>+创作</div>

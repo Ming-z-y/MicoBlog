@@ -10,7 +10,7 @@ export default function Article(props) {
                 info.map((item, index) => {
                     return (
                         <div className={style['article_inner']} key={index} >
-                            <Link to='/article'>
+                            <Link to={`/article?id=${item.article.id}`}>
                                 <div className={style['itemTop']}>
                                     <div className={style['user_box']}>
                                         <img src={item.user.headUrl} alt="userAvatar" />
