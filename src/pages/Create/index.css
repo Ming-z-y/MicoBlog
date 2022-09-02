@@ -1,0 +1,59 @@
+#createBox {
+  width: 980px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 0 100px;
+  padding-top: 80px;
+}
+#createBox #createTitle {
+  width: 250px;
+  height: 40px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  line-height: 40px;
+  padding-left: 10px;
+  font-size: 18px;
+  box-shadow: 3px 3px 10px #e3e2e2;
+}
+#createBox #createNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 220px;
+  height: 35px;
+  margin-bottom: 10px;
+}
+#createBox #createNav .createIcon {
+  font-size: 25px;
+  transition: 0.3s;
+}
+#createBox #createNav .createIcon:hover {
+  color: #3f8cff;
+}
+#createBox #createContent {
+  display: flex;
+  flex-direction: column;
+}
+#createBox #createContent #content {
+  font-size: 15px;
+  padding: 15px 15px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 10px #e3e2e2;
+  font: inherit;
+}
+#createBox #createContent #createBtn {
+  display: block;
+  color: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  width: 60px;
+  height: 30px;
+  background-color: #3f8cff;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ant-btn-primary {
+  display: none;
+}
+/*# sourceMappingURL=./index.css.map */

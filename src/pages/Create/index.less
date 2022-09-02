@@ -1,0 +1,59 @@
+#createBox {
+  width: 980px;
+  height: 600px;
+  margin: 0 auto;
+  padding: 0 100px;
+  padding-top: 80px;
+  #createTitle {
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    line-height: 40px;
+    padding-left: 10px;
+    font-size: 18px;
+    box-shadow: 3px 3px 10px rgb(227, 226, 226);
+  }
+  #createNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 220px;
+    height: 35px;
+    margin-bottom: 10px;
+    .createIcon {
+      font-size: 25px;
+      transition: .3s;
+      &:hover{
+        color:rgb(63, 140, 255);
+      }
+    }
+  }
+  #createContent {
+    display: flex;
+    flex-direction: column;
+    #content {
+      font-size: 15px;
+      padding: 15px 15px;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgb(227, 226, 226);
+      font: inherit;
+    }
+    #createBtn {
+      display: block;
+      color: white;
+      margin: 0 auto;
+      margin-top: 20px;
+      width: 60px;
+      height: 30px;
+      background-color: rgb(63, 140, 255);
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+    //   font-weight: bold;
+    }
+  }
+}
+.ant-btn-primary{
+    display: none;
+}
