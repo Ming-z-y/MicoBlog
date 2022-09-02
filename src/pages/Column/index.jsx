@@ -2,15 +2,17 @@ import React from 'react'
 import 'antd/dist/antd.css';
 import { Descriptions, List } from 'antd';
 import { columnInfo } from '../../api/request';
+import { useSearchParams } from 'react-router-dom';
 import { follow } from '../../api/request';
 import { Link } from 'react-router-dom';
 import './index.css'
 export default function Column() {
+  const [search,setSearch] = useSearchParams() 
   const[newData,setNewData] = React.useState(null)
   const[isFollow,setIsFollow] = React.useState(true)
   React.useEffect(()=>{
-
-      columnInfo(1).then((res)=>{
+      const id =search.get('id')
+      columnInfo(id).then((res)=>{
        const newData = res.data.data
        setNewData(newData)
       })
@@ -55,7 +57,7 @@ export default function Column() {
           renderItem={(item) => (
             <List.Item>
               <List.Item.Meta
-                title={<Link to={`/article/${item.id}`}>{item.articleTitle}</Link>}
+                title={<Link to={`/article?id=${item.id}`}>{item.articleTitle}</Link>}
                 description={item.content}
               />
             </List.Item>

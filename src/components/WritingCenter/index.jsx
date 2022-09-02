@@ -11,7 +11,7 @@ export default function WritingCenter() {
         const userId = Number(localStorage.getItem('userId'))
         getUserInfo(userId).then(res => {
             setUserInfo(res.data.data)
-            console.log(res.data.data);
+            console.log('mymymy',res.data.data);
         })
     }, [])
 

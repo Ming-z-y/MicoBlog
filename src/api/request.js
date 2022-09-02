@@ -58,6 +58,6 @@ export const follow = (userId, authorId, type) => {
     return instance.post(`/weiboke/follow?userId=${userId}&authorId=${authorId}&type=${type}`)
 }
 
-export const cutInImage = (articleId) => {
-    return instance.post(`/weiboke/static/Image/article?articleId=${articleId}`)
+export const cutInImage = () => {
+    return instance.post(`/weiboke/static/Image/article`)
 }

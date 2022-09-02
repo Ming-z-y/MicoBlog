@@ -9,6 +9,7 @@ export default function Recommend() {
     useEffect(() => {
         recommendArticle().then(res => {
             setReInfo(res.data.data)
+            console.log('res',res);
         })
     }, [])
     return reInfo ? (

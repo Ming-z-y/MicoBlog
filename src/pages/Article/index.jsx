@@ -1,19 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { articleInfo } from '../../api/request';
 import 'antd/dist/antd.css';
 import './index.css'
 export default function Article(props) {
+    const [search,setSearch] = useSearchParams()
+    const id = search.get('id')
+    const columnId = search.get('columnId')
     const[data,setData] = React.useState(null)
     React.useEffect(()=>{
-            articleInfo(2).then((res)=>{
+        console.log(props);
+            articleInfo(id).then((res)=>{
                 const {data} = res.data
                 setData(data)
             })
     },[])
     return data ?(
         <div id='wrap'>
-            <div id="title"><Link to='/column'>{data.article.columnTitle}</Link></div>
+            <div id="title"><Link to={`/column?id=${columnId}`}>{data.article.columnTitle}</Link></div>
             <div id="content">
                 <h1>{data.article.articleTitle}</h1>
                 <div className="msgbox">
