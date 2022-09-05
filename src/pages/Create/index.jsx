@@ -7,6 +7,7 @@ import {
     UnderlineOutlined,
 } from '@ant-design/icons';
 import { Upload, Modal, Row, Col, Input, message } from 'antd';
+import { useSearchParams } from 'react-router-dom'
 import { createArticle } from '../../api/request';
 import { useRef } from 'react';
 import './index.css'
@@ -31,6 +32,9 @@ export default function Create() {
     const [selectText, setSelectText] = useState({ type: '', text: '' })
     const title = useRef()
     const content = useRef()
+    const [parmers] = useSearchParams()
+    const userId = parmers.get('userId')
+    const columnId = parmers.get('columnId')
     const showModal = () => {
         setIsModalVisible(true);
     };
@@ -54,39 +58,36 @@ export default function Create() {
         }
     }
 
-    const changeSelectType = (type) => {
-        setSelectText(e => ({ ...e, type }))
-        // const a = textValue.replace(selectText.text, `<span>${selectText.text}</span>`)
-        // setTextValue(a)
-        // console.log(a);
-        const a = textValue.split(selectText.text).flatMap(
-            (str) => [<span className="highlight" key={1}>{selectText.text}</span>, str]
-        ).slice(1)
-        setTextValue(a)
+    const changeBold = () => {
+        const newState = !isBold
+        setIsBold(newState)
+        setSelectText(e => ({ ...e, type: 'bold' }))
     }
-
-    // const changeBold = () => {
-    //     // const newState = !isBold
-    //     // setIsBold(newState)
-    //     setSelectText(e => ({ ...e, type: 'bold' }))
-    // }
-    // const changeItalic = () => {
-    //     // const newState = !isItalic
-    //     // setIsItalic(newState)
-    //     console.log(selectText);
-    // }
-    // const changeUnderline = () => {
-    //     const newState = !isUnderline
-    //     setIsUnderline(newState)
-    // }
+    const changeItalic = () => {
+        const newState = !isItalic
+        setIsItalic(newState)
+        console.log(selectText);
+    }
+    const changeUnderline = () => {
+        const newState = !isUnderline
+        setIsUnderline(newState)
+    }
+    const showImg = (info) => {
+        if (info.file.response) {
+            const { data } = info.file.response;
+            setTextValue(textValue + `<img src=${data} />`)
+        }
+    }
     const sendMsg = () => {
         const { current: { value: titleData } } = title
         const { current: { resizableTextArea: { props: { value: contentData } } } } = content
-        createArticle(titleData, contentData, 1, 1).then((res) => {
+        createArticle(contentData, titleData, columnId, userId).then((res) => {
             message.success(res.data.status_msg)
             setTimeout(() => {
-                window.location.href = '/column'
+                window.location.href = '/home/follow'
             }, 1000);
+        }).catch(err => {
+            message.error('网络异常')
         })
     }
     return (
@@ -94,7 +95,7 @@ export default function Create() {
             <input type="text" id="createTitle" placeholder='标题' ref={title} />
             <div id="createNav">
                 {/* 地址还有问题 */}
-                <Upload action="api/weiboke/static/Image/article" method='post' showUploadList={false} url>
+                <Upload action="api/weiboke/static/Image/article" method='post' showUploadList={false} url onChange={showImg}>
                     <PictureOutlined className='createIcon' />
                 </Upload>
                 <SmileOutlined className='createIcon' onClick={showModal} />
@@ -113,14 +114,13 @@ export default function Create() {
                         }
                     </Row>
                 </Modal>
-                <BoldOutlined className='createIcon' onClick={() => { changeSelectType('bold') }} />
-                <ItalicOutlined className='createIcon' onClick={() => { changeSelectType('italic') }} />
-                <UnderlineOutlined className='createIcon' onClick={() => { changeSelectType('underline') }} />
+                <BoldOutlined className='createIcon' onClick={() => { changeBold() }} />
+                <ItalicOutlined className='createIcon' onClick={() => { changeItalic() }} />
+                <UnderlineOutlined className='createIcon' onClick={() => { changeUnderline() }} />
             </div>
             <div id="createContent">
                 {/* <textarea name="" id="content" cols="120" rows="15" value={textValue} onChange={onChange} ></textarea> */}
-                {/* <TextArea id='content' ref={content} onSelect={onSelectHandler} value={textValue} onChange={onChange} allowClear='true' cols="120" rows="15" style={{ fontWeight: (isBold ? 'bold' : 'normal'), fontStyle: (isItalic ? 'italic' : 'normal'), textDecoration: (isUnderline ? 'underline' : 'none') }} /> */}
-                <TextArea id='content' ref={content} onSelect={onSelectHandler} onChange={onChange} allowClear='true' cols="120" rows="15" >{textValue}</TextArea>
+                <TextArea id='content' ref={content} onSelect={onSelectHandler} value={textValue} onChange={onChange} allowClear='true' cols="120" rows="15" style={{ fontWeight: (isBold ? 'bold' : 'normal'), fontStyle: (isItalic ? 'italic' : 'normal'), textDecoration: (isUnderline ? 'underline' : 'none') }} />
                 <button id='createBtn' onClick={sendMsg}>发布</button>
             </div>
         </div>

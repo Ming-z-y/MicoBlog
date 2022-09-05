@@ -11,16 +11,15 @@ export default function WritingCenter() {
         const userId = Number(localStorage.getItem('userId'))
         getUserInfo(userId).then(res => {
             setUserInfo(res.data.data)
-            console.log('mymymy',res.data.data);
         })
     }, [])
 
     const createColumnHandler = () => {
         setIsShow(true)
     }
-    const createHandler = (e) => {
+    const createHandler = (e, columnId) => {
         e.preventDefault();
-        window.location.href = '/create'
+        window.location.href = `/create?userId=${userInfo.user.id}&columnId=${columnId}`
     }
     return userInfo ? (
         <div className={style['writingCenter_box']}>
@@ -61,12 +60,12 @@ export default function WritingCenter() {
                     return (
                         <div className={style['columnInfo_box']} key={index}>
                             <div className="coverImg_div">
-                                <img src={item.coverUrl} alt="coverImg" />
+                                <img src={item.coverUrl} alt="coverImg" style={{ width: 50 + 'px', height: 50 + 'px' }} />
                             </div>
                             <Link to={`/column?id=${item.id}`} className={style['coverContent']}>
                                 <div className={style['coverTitle_div']}>
                                     <div className={style['coverTitle']}>{item.title}</div>
-                                    <div className={style['create_div']} onClick={createHandler}>+创作</div>
+                                    <div className={style['create_div']} onClick={(e) => { createHandler(e, item.id) }}>+创作</div>
                                 </div>
                                 <div className={style['count_div']}>
                                     <div>作品：{item.articleCount}</div>

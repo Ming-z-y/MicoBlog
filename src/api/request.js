@@ -6,6 +6,7 @@ const instance = axios.create({
     timeout: TIME_OUT
 })
 
+
 export const login = (username, password) => {
     return instance.post(`/weiboke/user/login?username=${username}&password=${password}`)
 }
